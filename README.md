@@ -9,7 +9,7 @@ readme教程
 >>>三<br>
 >>>>四<br>
 4.插入图片<br>
-![](http://www.baidu.com/img/bdlogo.gif) 即 叹号! + 方括号[ ] + 括号( ) 其中叹号里是图片的URL。<br>
+![](图片地址) 即 叹号! + 方括号[ ] + 括号( ) 其中叹号里是图片的URL。<br>
 5.给图片加上超链接<br>
 [![baidu]](http://baidu.com)  <br>
 [baidu]:http://www.baidu.com/img/bdlogo.gif "百度Logo"  <br>
