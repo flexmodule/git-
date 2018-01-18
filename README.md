@@ -38,5 +38,38 @@ git reset --hard
 重设缓冲区和工作目录，匹配最近的一次提交。除了取消缓存之外，--hard 标记告诉 Git 还要重写所有工作目录中的更改。换句话说：它清除了所有未提交的更改，所以在使用前确定你想扔掉你所有本地的开发。<br>
 git clean -f移除当前目录下未被跟踪的文件。<br>
 git commit --amend合并缓存的修改和上一次的提交，用新的快照替换上一个提交。缓存区没有文件时运行这个命令可以用来编辑上次提交的提交信息，而不会更改快照。仓促的提交在你日常开发过程中时常会发生。很容易就忘记了缓存一个文件或者弄错了提交信息的格式。--amend 标记是修复这些小意外的便捷方式。<br>
+-------------------------------------------
+常用命令
+==================================
+1.从master建立分支并切换过去  Git checkout –b new-branch master<br>
+2.由当前分支建立新分支并切换过去 Git checkout –b new-branch<br>
+3.删除本地分支： git branch –d branch1<br>
+4.强制删除本地分支：Git branch –D branch1<br>
+5.删除远程分支 ：git push origin - - delete branchname<br>
+6.回退到历史某个版本：git reset --hard 版本号 <br>
+把修改推到远程服务器：git push -f -u origin master (-f  : -force)<br>
+　git reset --hard ＨＥＡＤ＾回退到上一个版本<br>
+　git reset –hard　ＨＥＡＤ～１００回退１００个版本<br>
+7.建立本地分支和远程分支的联系：<br><br><br>
+git branch --set-upstream-to=origin/dev  dev (新版本)<br><br>
+git branch --set-upstream devtest origin/devtest（老版本）<br>
+８．Git revert撤销 某次操作，此次操作之前和之后的commit和history都会保留，并且把这次撤销作为一次最新的提交<br><br>
+git revert HEAD                  撤销前一次 commit<br>
+ git revert HEAD^               撤销前前一次 commit<br>
+ git revert commit-id （比如：fa042ce57ebbe5bb9c8db709f719cec2c58ee7ff）撤销指定的版本，撤销也会作为一次提交进行保存。<br>
+9. git checkout mywork<br>
+git rebase origin<br>
+在rebase的过程中，也许会出现冲突(conflict). 在这种情况，Git会停止rebase并会让你去解决 冲突；在解决完冲突后，用"git-add"命令去更新这些内容的索引(index), 然后，你无需执行 git-commit,只要执行:<br>
+git rebase --continue<br>
+这样git会继续应用(apply)余下的补丁。在任何时候，你可以用--abort参数来终止rebase的行动，并且"mywork" 分支会回到rebase开始前的状态。<br>
+Git rebase --abort<br>
+10.删除文件：git rm filename<br>
+11.修改文件名或者搬移目录：git mv filename newfilename<br>
+12.如果当前分支与多个主机存在追踪关系，那么这个时候-u选项会指定一个默认主机，这样后面就可以不加任何参数了<br>
+Git push –u origin master(-u   :       -upstream)<br>
+git pull --rebase,这里表示把你的本地当前分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到".git/rebase"目录中),然后把本地当前分支更新 为最新的"origin"分支，最后把保存的这些补丁应用到本地当前分支上。<br>
+Git reset 与git revert <br>
+1.	git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit<br>
+2.	git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容。<br>
 
 
