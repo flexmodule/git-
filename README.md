@@ -23,7 +23,7 @@ readme教程
 -----------------------------------
  a.`git clone 远程仓库地址`（可以是ssh密钥地址或者http地址）<br>
  b.在本地新建一个文件夹，然后`git init`初始化声明这个文件夹为一个git仓库，同时在此文件夹生成了.git文件，然后`git remote add origin git@github.com:flexmodule/organic.git`连接远程仓库<br>
- 
+git push -u origin master   创建一个 upStream （上传流），并将本地代码通过这个 upStream 推送到 别名为 origin 的仓库中的 master 分支上，-u ，就是创建 upStream 上传流，如果没有这个上传流就无法将代码推送到 github；同时，这个 upStream 只需要在初次推送代码的时候创建，以后就不用创建了<br>
  ----------------------------------------
 2.git add -A和 git add .   git add -u
 ------------------------------------------
@@ -41,6 +41,8 @@ git commit --amend合并缓存的修改和上一次的提交，用新的快照�
 -------------------------------------------
 常用命令
 ==================================
+
+
 1.从master建立分支并切换过去  Git checkout –b new-branch master<br>
 2.由当前分支建立新分支并切换过去 Git checkout –b new-branch<br>
 3.删除本地分支： git branch –d branch1<br>
